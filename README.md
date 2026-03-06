@@ -426,6 +426,10 @@ curl -X POST http://localhost:3000/api/configure -H "Content-Type: application/j
 ## 📚 References
 
 - [ChirpStack Documentation](https://www.chirpstack.io/docs/)
+- [Chirpstack BackEnd GitHub](https://github.com/lucadagati/Chirpstack_BackEnd)
+- [Chirpstack gateway-bridge GitHub](https://github.com/lucadagati/chirpstack-gateway-bridge/tree/v3)
 - [Algorand Developer Docs](https://developer.algorand.org/)
 - [AlgoKit Documentation](https://developer.algorand.org/docs/get-started/algokit/)
 - [LWN Simulator GitHub](https://github.com/UniCT-ARSLab/LWN-Simulator)
+
+
