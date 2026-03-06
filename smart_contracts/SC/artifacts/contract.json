@@ -1,0 +1,215 @@
+{
+    "name": "SLA contracting",
+    "methods": [
+        {
+            "name": "create",
+            "args": [],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "opt_in",
+            "args": [],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "init",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "app_id_catalog"
+                },
+                {
+                    "type": "uint64",
+                    "name": "price"
+                },
+                {
+                    "type": "uint64",
+                    "name": "threshold"
+                },
+                {
+                    "type": "uint64",
+                    "name": "tolerance"
+                },
+                {
+                    "type": "uint64",
+                    "name": "payment_tolerance"
+                },
+                {
+                    "type": "string",
+                    "name": "token"
+                },
+                {
+                    "type": "string",
+                    "name": "gwid"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "get_appID_cat",
+            "args": [],
+            "returns": {
+                "type": "uint64"
+            }
+        },
+        {
+            "name": "getSLA",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "type_op"
+                },
+                {
+                    "type": "string",
+                    "name": "NetID"
+                }
+            ],
+            "returns": {
+                "type": "(string,string,string,uint64,uint64,uint64,string,string)"
+            }
+        },
+        {
+            "name": "deleteSLA",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "type_op"
+                },
+                {
+                    "type": "string",
+                    "name": "NetID"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "sla_check",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "NetID_home"
+                },
+                {
+                    "type": "account",
+                    "name": "provider"
+                },
+                {
+                    "type": "application",
+                    "name": "cat_ref"
+                },
+                {
+                    "type": "string",
+                    "name": "Name_home_Provider"
+                },
+                {
+                    "type": "application",
+                    "name": "Endpoint_home_SC"
+                }
+            ],
+            "returns": {
+                "type": "(string,string,string)"
+            }
+        },
+        {
+            "name": "handshake",
+            "args": [
+                {
+                    "type": "application",
+                    "name": "app_id_catalog"
+                },
+                {
+                    "type": "account",
+                    "name": "provider"
+                },
+                {
+                    "type": "uint64",
+                    "name": "price_f"
+                },
+                {
+                    "type": "uint64",
+                    "name": "threshold_f"
+                }
+            ],
+            "returns": {
+                "type": "(string,string,string)"
+            }
+        },
+        {
+            "name": "receive_packet_from_forwarder",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "NetID_forwarder"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "pay",
+            "args": [
+                {
+                    "type": "application",
+                    "name": "app_id_catalog"
+                },
+                {
+                    "type": "account",
+                    "name": "receiver"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "balance",
+            "args": [
+                {
+                    "type": "account",
+                    "name": "receiver"
+                }
+            ],
+            "returns": {
+                "type": "uint64"
+            }
+        },
+        {
+            "name": "ban_home_function",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "NetID_forwarder"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "get_sla_stats",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "NetID"
+                },
+                {
+                    "type": "string",
+                    "name": "type_op"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            }
+        }
+    ],
+    "networks": {}
+}

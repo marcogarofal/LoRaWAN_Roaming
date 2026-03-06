@@ -1,0 +1,176 @@
+{
+    "hints": {
+        "create()void": {
+            "call_config": {
+                "no_op": "CREATE"
+            }
+        },
+        "opt_in(pay)void": {
+            "call_config": {
+                "opt_in": "CALL"
+            }
+        },
+        "set_entry_provider(string,string,uint64)string": {
+            "call_config": {
+                "no_op": "CALL"
+            }
+        },
+        "get_entry_provider(account)(string,string,uint64)": {
+            "read_only": true,
+            "structs": {
+                "output": {
+                    "name": "EndpointItem",
+                    "elements": [
+                        [
+                            "NetID",
+                            "string"
+                        ],
+                        [
+                            "Name_Provider",
+                            "string"
+                        ],
+                        [
+                            "Endpoint_SC",
+                            "uint64"
+                        ]
+                    ]
+                }
+            },
+            "call_config": {
+                "no_op": "CALL"
+            }
+        },
+        "delete_endpoint()string": {
+            "call_config": {
+                "no_op": "CALL"
+            }
+        },
+        "provider_exists(account)bool": {
+            "read_only": true,
+            "call_config": {
+                "no_op": "CALL"
+            }
+        }
+    },
+    "source": {
+        "approval": "I3ByYWdtYSB2ZXJzaW9uIDgKaW50Y2Jsb2NrIDAgMQpieXRlY2Jsb2NrIDB4IDB4NDU2ZTY0NzA2ZjY5NmU3NDIwNmY2NjIwNTM2ZDYxNzI3NDIwNDM2ZjZlNzQ3MjYxNjM3NCAweDRlNjU3NDQ5NDQgMHg1MDcyNmY3NjY5NjQ2NTcyMjA0ZTYxNmQ2NSAweDE1MWY3Yzc1CnR4biBOdW1BcHBBcmdzCmludGNfMCAvLyAwCj09CmJueiBtYWluX2wxNAp0eG5hIEFwcGxpY2F0aW9uQXJncyAwCnB1c2hieXRlcyAweDRjNWM2MWJhIC8vICJjcmVhdGUoKXZvaWQiCj09CmJueiBtYWluX2wxMwp0eG5hIEFwcGxpY2F0aW9uQXJncyAwCnB1c2hieXRlcyAweGFlYjRjMTYyIC8vICJvcHRfaW4ocGF5KXZvaWQiCj09CmJueiBtYWluX2wxMgp0eG5hIEFwcGxpY2F0aW9uQXJncyAwCnB1c2hieXRlcyAweGRhN2U4MjVhIC8vICJzZXRfZW50cnlfcHJvdmlkZXIoc3RyaW5nLHN0cmluZyx1aW50NjQpc3RyaW5nIgo9PQpibnogbWFpbl9sMTEKdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMApwdXNoYnl0ZXMgMHhlMGM4ZTdkMSAvLyAiZ2V0X2VudHJ5X3Byb3ZpZGVyKGFjY291bnQpKHN0cmluZyxzdHJpbmcsdWludDY0KSIKPT0KYm56IG1haW5fbDEwCnR4bmEgQXBwbGljYXRpb25BcmdzIDAKcHVzaGJ5dGVzIDB4ZjYwODM3MjEgLy8gImRlbGV0ZV9lbmRwb2ludCgpc3RyaW5nIgo9PQpibnogbWFpbl9sOQp0eG5hIEFwcGxpY2F0aW9uQXJncyAwCnB1c2hieXRlcyAweDU3NjM0YWVjIC8vICJwcm92aWRlcl9leGlzdHMoYWNjb3VudClib29sIgo9PQpibnogbWFpbl9sOAplcnIKbWFpbl9sODoKdHhuIE9uQ29tcGxldGlvbgppbnRjXzAgLy8gTm9PcAo9PQp0eG4gQXBwbGljYXRpb25JRAppbnRjXzAgLy8gMAohPQomJgphc3NlcnQKY2FsbHN1YiBwcm92aWRlcmV4aXN0c2Nhc3Rlcl8xNAppbnRjXzEgLy8gMQpyZXR1cm4KbWFpbl9sOToKdHhuIE9uQ29tcGxldGlvbgppbnRjXzAgLy8gTm9PcAo9PQp0eG4gQXBwbGljYXRpb25JRAppbnRjXzAgLy8gMAohPQomJgphc3NlcnQKY2FsbHN1YiBkZWxldGVlbmRwb2ludGNhc3Rlcl8xMwppbnRjXzEgLy8gMQpyZXR1cm4KbWFpbl9sMTA6CnR4biBPbkNvbXBsZXRpb24KaW50Y18wIC8vIE5vT3AKPT0KdHhuIEFwcGxpY2F0aW9uSUQKaW50Y18wIC8vIDAKIT0KJiYKYXNzZXJ0CmNhbGxzdWIgZ2V0ZW50cnlwcm92aWRlcmNhc3Rlcl8xMgppbnRjXzEgLy8gMQpyZXR1cm4KbWFpbl9sMTE6CnR4biBPbkNvbXBsZXRpb24KaW50Y18wIC8vIE5vT3AKPT0KdHhuIEFwcGxpY2F0aW9uSUQKaW50Y18wIC8vIDAKIT0KJiYKYXNzZXJ0CmNhbGxzdWIgc2V0ZW50cnlwcm92aWRlcmNhc3Rlcl8xMQppbnRjXzEgLy8gMQpyZXR1cm4KbWFpbl9sMTI6CnR4biBPbkNvbXBsZXRpb24KaW50Y18xIC8vIE9wdEluCj09CnR4biBBcHBsaWNhdGlvbklECmludGNfMCAvLyAwCiE9CiYmCmFzc2VydApjYWxsc3ViIG9wdGluY2FzdGVyXzEwCmludGNfMSAvLyAxCnJldHVybgptYWluX2wxMzoKdHhuIE9uQ29tcGxldGlvbgppbnRjXzAgLy8gTm9PcAo9PQp0eG4gQXBwbGljYXRpb25JRAppbnRjXzAgLy8gMAo9PQomJgphc3NlcnQKY2FsbHN1YiBjcmVhdGVjYXN0ZXJfOQppbnRjXzEgLy8gMQpyZXR1cm4KbWFpbl9sMTQ6CnR4biBPbkNvbXBsZXRpb24KcHVzaGludCAyIC8vIENsb3NlT3V0Cj09CmJueiBtYWluX2wyMAp0eG4gT25Db21wbGV0aW9uCnB1c2hpbnQgNCAvLyBVcGRhdGVBcHBsaWNhdGlvbgo9PQpibnogbWFpbl9sMTkKdHhuIE9uQ29tcGxldGlvbgpwdXNoaW50IDUgLy8gRGVsZXRlQXBwbGljYXRpb24KPT0KYm56IG1haW5fbDE4CmVycgptYWluX2wxODoKdHhuIEFwcGxpY2F0aW9uSUQKaW50Y18wIC8vIDAKIT0KYXNzZXJ0CmNhbGxzdWIgZGVsZXRlXzEKaW50Y18xIC8vIDEKcmV0dXJuCm1haW5fbDE5Ogp0eG4gQXBwbGljYXRpb25JRAppbnRjXzAgLy8gMAohPQphc3NlcnQKY2FsbHN1YiB1cGRhdGVfMgppbnRjXzEgLy8gMQpyZXR1cm4KbWFpbl9sMjA6CnR4biBBcHBsaWNhdGlvbklECmludGNfMCAvLyAwCiE9CmFzc2VydApjYWxsc3ViIGNsb3Nlb3V0XzQKaW50Y18xIC8vIDEKcmV0dXJuCgovLyBjcmVhdGUKY3JlYXRlXzA6CnByb3RvIDAgMAppbnRjXzEgLy8gMQpyZXR1cm4KCi8vIGRlbGV0ZQpkZWxldGVfMToKcHJvdG8gMCAwCnR4biBTZW5kZXIKZ2xvYmFsIENyZWF0b3JBZGRyZXNzCj09Ci8vIHVuYXV0aG9yaXplZAphc3NlcnQKaW50Y18xIC8vIDEKcmV0dXJuCgovLyB1cGRhdGUKdXBkYXRlXzI6CnByb3RvIDAgMAp0eG4gU2VuZGVyCmdsb2JhbCBDcmVhdG9yQWRkcmVzcwo9PQovLyB1bmF1dGhvcml6ZWQKYXNzZXJ0CmludGNfMCAvLyAwCnJldHVybgoKLy8gb3B0X2luCm9wdGluXzM6CnByb3RvIDEgMApmcmFtZV9kaWcgLTEKZ3R4bnMgUmVjZWl2ZXIKZ2xvYmFsIENyZWF0b3JBZGRyZXNzCj09Ci8vIFRoZSByZWNlaXZlciBvZiBwYXltZW50IGlzIGluY29ycmVjdCEKYXNzZXJ0CmZyYW1lX2RpZyAtMQpndHhucyBBbW91bnQKcHVzaGludCAxMDAwMDAwIC8vIDEwMDAwMDAKaW50Y18xIC8vIDEKKgo+PQovLyBUaGUgYW1vdW50IG9mIHBheW1lbnQgaXMgdG9vIGxvdyEKYXNzZXJ0CnR4biBTZW5kZXIKYnl0ZWNfMSAvLyAiRW5kcG9pbnQgb2YgU21hcnQgQ29udHJhY3QiCmludGNfMCAvLyAwCmFwcF9sb2NhbF9wdXQKdHhuIFNlbmRlcgpieXRlY18zIC8vICJQcm92aWRlciBOYW1lIgpieXRlY18wIC8vICIiCmFwcF9sb2NhbF9wdXQKdHhuIFNlbmRlcgpieXRlY18yIC8vICJOZXRJRCIKYnl0ZWNfMCAvLyAiIgphcHBfbG9jYWxfcHV0CnJldHN1YgoKLy8gY2xvc2Vfb3V0CmNsb3Nlb3V0XzQ6CnByb3RvIDAgMAp0eG4gU2VuZGVyCmdsb2JhbCBDdXJyZW50QXBwbGljYXRpb25JRAphcHBfb3B0ZWRfaW4KLy8gdW5hdXRob3JpemVkCmFzc2VydAppbnRjXzEgLy8gMQpyZXR1cm4KCi8vIHNldF9lbnRyeV9wcm92aWRlcgpzZXRlbnRyeXByb3ZpZGVyXzU6CnByb3RvIDMgMQpieXRlY18wIC8vICIiCnR4biBTZW5kZXIKZ2xvYmFsIEN1cnJlbnRBcHBsaWNhdGlvbklECmFwcF9vcHRlZF9pbgovLyB1bmF1dGhvcml6ZWQKYXNzZXJ0CmZyYW1lX2RpZyAtMwpleHRyYWN0IDIgMApsZW4KaW50Y18wIC8vIDAKPgovLyBOZXRJRCBjYW5ub3QgYmUgZW1wdHkKYXNzZXJ0CmZyYW1lX2RpZyAtMgpleHRyYWN0IDIgMApsZW4KaW50Y18wIC8vIDAKPgovLyBQcm92aWRlciBuYW1lIGNhbm5vdCBiZSBlbXB0eQphc3NlcnQKZnJhbWVfZGlnIC0xCmludGNfMCAvLyAwCj4KLy8gQXBwIElEIG11c3QgYmUgZ3JlYXRlciB0aGFuIDAKYXNzZXJ0CnR4biBTZW5kZXIKYnl0ZWNfMiAvLyAiTmV0SUQiCmZyYW1lX2RpZyAtMwpleHRyYWN0IDIgMAphcHBfbG9jYWxfcHV0CnR4biBTZW5kZXIKYnl0ZWNfMyAvLyAiUHJvdmlkZXIgTmFtZSIKZnJhbWVfZGlnIC0yCmV4dHJhY3QgMiAwCmFwcF9sb2NhbF9wdXQKdHhuIFNlbmRlcgpieXRlY18xIC8vICJFbmRwb2ludCBvZiBTbWFydCBDb250cmFjdCIKZnJhbWVfZGlnIC0xCmFwcF9sb2NhbF9wdXQKcHVzaGJ5dGVzIDB4NTA3MjZmNzY2OTY0NjU3MjIwNzI2NTY3Njk3Mzc0NjU3MjY1NjQzYTIwIC8vICJQcm92aWRlciByZWdpc3RlcmVkOiAiCmZyYW1lX2RpZyAtMwpleHRyYWN0IDIgMApjb25jYXQKcHVzaGJ5dGVzIDB4MjAyZDIwIC8vICIgLSAiCmNvbmNhdApmcmFtZV9kaWcgLTIKZXh0cmFjdCAyIDAKY29uY2F0CmxvZwpwdXNoYnl0ZXMgMHg0NTZlNjQ3MDZmNjk2ZTc0MjA3MjY1Njc2OTczNzQ2NTcyNjU2NDIwNzM3NTYzNjM2NTczNzM2Njc1NmM2Yzc5MjEgLy8gIkVuZHBvaW50IHJlZ2lzdGVyZWQgc3VjY2Vzc2Z1bGx5ISIKZnJhbWVfYnVyeSAwCmZyYW1lX2RpZyAwCmxlbgppdG9iCmV4dHJhY3QgNiAwCmZyYW1lX2RpZyAwCmNvbmNhdApmcmFtZV9idXJ5IDAKcmV0c3ViCgovLyBnZXRfZW50cnlfcHJvdmlkZXIKZ2V0ZW50cnlwcm92aWRlcl82Ogpwcm90byAxIDEKYnl0ZWNfMCAvLyAiIgpkdXBuIDIKaW50Y18wIC8vIDAKZHVwbiAyCmJ5dGVjXzAgLy8gIiIKZHVwCmZyYW1lX2RpZyAtMQp0eG5hcyBBY2NvdW50cwppbnRjXzAgLy8gMApieXRlY18xIC8vICJFbmRwb2ludCBvZiBTbWFydCBDb250cmFjdCIKYXBwX2xvY2FsX2dldF9leApzdG9yZSAxCnN0b3JlIDAKbG9hZCAxCmludGNfMSAvLyAxCj09Ci8vIFRoaXMgcHJvdmlkZXIgbm90IGZvdW5kIQphc3NlcnQKZnJhbWVfZGlnIC0xCnR4bmFzIEFjY291bnRzCmJ5dGVjXzIgLy8gIk5ldElEIgphcHBfbG9jYWxfZ2V0CmZyYW1lX2J1cnkgMQpmcmFtZV9kaWcgMQpsZW4KaXRvYgpleHRyYWN0IDYgMApmcmFtZV9kaWcgMQpjb25jYXQKZnJhbWVfYnVyeSAxCmZyYW1lX2RpZyAtMQp0eG5hcyBBY2NvdW50cwpieXRlY18zIC8vICJQcm92aWRlciBOYW1lIgphcHBfbG9jYWxfZ2V0CmZyYW1lX2J1cnkgMgpmcmFtZV9kaWcgMgpsZW4KaXRvYgpleHRyYWN0IDYgMApmcmFtZV9kaWcgMgpjb25jYXQKZnJhbWVfYnVyeSAyCmZyYW1lX2RpZyAtMQp0eG5hcyBBY2NvdW50cwpieXRlY18xIC8vICJFbmRwb2ludCBvZiBTbWFydCBDb250cmFjdCIKYXBwX2xvY2FsX2dldApmcmFtZV9idXJ5IDMKZnJhbWVfZGlnIDEKZnJhbWVfYnVyeSA3CmZyYW1lX2RpZyA3CmZyYW1lX2J1cnkgNgpwdXNoaW50IDEyIC8vIDEyCmZyYW1lX2J1cnkgNApmcmFtZV9kaWcgNApmcmFtZV9kaWcgNwpsZW4KKwpmcmFtZV9idXJ5IDUKZnJhbWVfZGlnIDUKcHVzaGludCA2NTUzNiAvLyA2NTUzNgo8CmFzc2VydApmcmFtZV9kaWcgNAppdG9iCmV4dHJhY3QgNiAwCmZyYW1lX2RpZyAyCmZyYW1lX2J1cnkgNwpmcmFtZV9kaWcgNgpmcmFtZV9kaWcgNwpjb25jYXQKZnJhbWVfYnVyeSA2CmZyYW1lX2RpZyA1CmZyYW1lX2J1cnkgNApmcmFtZV9kaWcgNAppdG9iCmV4dHJhY3QgNiAwCmNvbmNhdApmcmFtZV9kaWcgMwppdG9iCmNvbmNhdApmcmFtZV9kaWcgNgpjb25jYXQKZnJhbWVfYnVyeSAwCnJldHN1YgoKLy8gZGVsZXRlX2VuZHBvaW50CmRlbGV0ZWVuZHBvaW50Xzc6CnByb3RvIDAgMQpieXRlY18wIC8vICIiCnR4biBTZW5kZXIKZ2xvYmFsIEN1cnJlbnRBcHBsaWNhdGlvbklECmFwcF9vcHRlZF9pbgovLyB1bmF1dGhvcml6ZWQKYXNzZXJ0CnR4biBTZW5kZXIKaW50Y18wIC8vIDAKYnl0ZWNfMSAvLyAiRW5kcG9pbnQgb2YgU21hcnQgQ29udHJhY3QiCmFwcF9sb2NhbF9nZXRfZXgKc3RvcmUgMwpzdG9yZSAyCmxvYWQgMwppbnRjXzEgLy8gMQo9PQovLyBUaGlzIHByb3ZpZGVyIG5vdCBmb3VuZCEKYXNzZXJ0CnB1c2hieXRlcyAweDUwNzI2Zjc2Njk2NDY1NzIyMDY0NjU2YzY1NzQ2NTY0M2EyMCAvLyAiUHJvdmlkZXIgZGVsZXRlZDogIgp0eG4gU2VuZGVyCmJ5dGVjXzIgLy8gIk5ldElEIgphcHBfbG9jYWxfZ2V0CmNvbmNhdApsb2cKdHhuIFNlbmRlcgpieXRlY18yIC8vICJOZXRJRCIKYXBwX2xvY2FsX2RlbAp0eG4gU2VuZGVyCmJ5dGVjXzMgLy8gIlByb3ZpZGVyIE5hbWUiCmFwcF9sb2NhbF9kZWwKdHhuIFNlbmRlcgpieXRlY18xIC8vICJFbmRwb2ludCBvZiBTbWFydCBDb250cmFjdCIKYXBwX2xvY2FsX2RlbApwdXNoYnl0ZXMgMHg0NTZlNjQ3MDZmNjk2ZTc0MjA2NDY1NmM2NTc0NjU2NDIwNzM3NTYzNjM2NTczNzM2Njc1NmM2Yzc5MjEgLy8gIkVuZHBvaW50IGRlbGV0ZWQgc3VjY2Vzc2Z1bGx5ISIKZnJhbWVfYnVyeSAwCmZyYW1lX2RpZyAwCmxlbgppdG9iCmV4dHJhY3QgNiAwCmZyYW1lX2RpZyAwCmNvbmNhdApmcmFtZV9idXJ5IDAKcmV0c3ViCgovLyBwcm92aWRlcl9leGlzdHMKcHJvdmlkZXJleGlzdHNfODoKcHJvdG8gMSAxCmludGNfMCAvLyAwCmZyYW1lX2RpZyAtMQp0eG5hcyBBY2NvdW50cwppbnRjXzAgLy8gMApieXRlY18xIC8vICJFbmRwb2ludCBvZiBTbWFydCBDb250cmFjdCIKYXBwX2xvY2FsX2dldF9leApzdG9yZSA1CnN0b3JlIDQKbG9hZCA1CiEKIQpmcmFtZV9idXJ5IDAKcmV0c3ViCgovLyBjcmVhdGVfY2FzdGVyCmNyZWF0ZWNhc3Rlcl85Ogpwcm90byAwIDAKY2FsbHN1YiBjcmVhdGVfMApyZXRzdWIKCi8vIG9wdF9pbl9jYXN0ZXIKb3B0aW5jYXN0ZXJfMTA6CnByb3RvIDAgMAppbnRjXzAgLy8gMAp0eG4gR3JvdXBJbmRleAppbnRjXzEgLy8gMQotCmZyYW1lX2J1cnkgMApmcmFtZV9kaWcgMApndHhucyBUeXBlRW51bQppbnRjXzEgLy8gcGF5Cj09CmFzc2VydApmcmFtZV9kaWcgMApjYWxsc3ViIG9wdGluXzMKcmV0c3ViCgovLyBzZXRfZW50cnlfcHJvdmlkZXJfY2FzdGVyCnNldGVudHJ5cHJvdmlkZXJjYXN0ZXJfMTE6CnByb3RvIDAgMApieXRlY18wIC8vICIiCmR1cG4gMgppbnRjXzAgLy8gMAp0eG5hIEFwcGxpY2F0aW9uQXJncyAxCmZyYW1lX2J1cnkgMQp0eG5hIEFwcGxpY2F0aW9uQXJncyAyCmZyYW1lX2J1cnkgMgp0eG5hIEFwcGxpY2F0aW9uQXJncyAzCmJ0b2kKZnJhbWVfYnVyeSAzCmZyYW1lX2RpZyAxCmZyYW1lX2RpZyAyCmZyYW1lX2RpZyAzCmNhbGxzdWIgc2V0ZW50cnlwcm92aWRlcl81CmZyYW1lX2J1cnkgMApieXRlYyA0IC8vIDB4MTUxZjdjNzUKZnJhbWVfZGlnIDAKY29uY2F0CmxvZwpyZXRzdWIKCi8vIGdldF9lbnRyeV9wcm92aWRlcl9jYXN0ZXIKZ2V0ZW50cnlwcm92aWRlcmNhc3Rlcl8xMjoKcHJvdG8gMCAwCmJ5dGVjXzAgLy8gIiIKaW50Y18wIC8vIDAKdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMQppbnRjXzAgLy8gMApnZXRieXRlCmZyYW1lX2J1cnkgMQpmcmFtZV9kaWcgMQpjYWxsc3ViIGdldGVudHJ5cHJvdmlkZXJfNgpmcmFtZV9idXJ5IDAKYnl0ZWMgNCAvLyAweDE1MWY3Yzc1CmZyYW1lX2RpZyAwCmNvbmNhdApsb2cKcmV0c3ViCgovLyBkZWxldGVfZW5kcG9pbnRfY2FzdGVyCmRlbGV0ZWVuZHBvaW50Y2FzdGVyXzEzOgpwcm90byAwIDAKYnl0ZWNfMCAvLyAiIgpjYWxsc3ViIGRlbGV0ZWVuZHBvaW50XzcKZnJhbWVfYnVyeSAwCmJ5dGVjIDQgLy8gMHgxNTFmN2M3NQpmcmFtZV9kaWcgMApjb25jYXQKbG9nCnJldHN1YgoKLy8gcHJvdmlkZXJfZXhpc3RzX2Nhc3Rlcgpwcm92aWRlcmV4aXN0c2Nhc3Rlcl8xNDoKcHJvdG8gMCAwCmludGNfMCAvLyAwCmR1cAp0eG5hIEFwcGxpY2F0aW9uQXJncyAxCmludGNfMCAvLyAwCmdldGJ5dGUKZnJhbWVfYnVyeSAxCmZyYW1lX2RpZyAxCmNhbGxzdWIgcHJvdmlkZXJleGlzdHNfOApmcmFtZV9idXJ5IDAKYnl0ZWMgNCAvLyAweDE1MWY3Yzc1CnB1c2hieXRlcyAweDAwIC8vIDB4MDAKaW50Y18wIC8vIDAKZnJhbWVfZGlnIDAKc2V0Yml0CmNvbmNhdApsb2cKcmV0c3Vi",
+        "clear": "I3ByYWdtYSB2ZXJzaW9uIDgKaW50Y2Jsb2NrIDEKY2FsbHN1YiBjbGVhcnN0YXRlXzAKaW50Y18wIC8vIDEKcmV0dXJuCgovLyBjbGVhcl9zdGF0ZQpjbGVhcnN0YXRlXzA6CnByb3RvIDAgMAppbnRjXzAgLy8gMQpyZXR1cm4="
+    },
+    "state": {
+        "global": {
+            "num_byte_slices": 0,
+            "num_uints": 0
+        },
+        "local": {
+            "num_byte_slices": 2,
+            "num_uints": 1
+        }
+    },
+    "schema": {
+        "global": {
+            "declared": {},
+            "reserved": {}
+        },
+        "local": {
+            "declared": {
+                "Endpoint_SC": {
+                    "type": "uint64",
+                    "key": "Endpoint of Smart Contract",
+                    "descr": "Endpoint Smart Contract of the provider that are part of the ecosystem."
+                },
+                "Name_Provider": {
+                    "type": "bytes",
+                    "key": "Provider Name",
+                    "descr": "Name of the provider who participated in the ecosystem."
+                },
+                "NetID": {
+                    "type": "bytes",
+                    "key": "NetID",
+                    "descr": "Identify of provider in LoRaWAN network."
+                }
+            },
+            "reserved": {}
+        }
+    },
+    "contract": {
+        "name": "List of endpoint",
+        "methods": [
+            {
+                "name": "create",
+                "args": [],
+                "returns": {
+                    "type": "void"
+                }
+            },
+            {
+                "name": "opt_in",
+                "args": [
+                    {
+                        "type": "pay",
+                        "name": "payment"
+                    }
+                ],
+                "returns": {
+                    "type": "void"
+                }
+            },
+            {
+                "name": "set_entry_provider",
+                "args": [
+                    {
+                        "type": "string",
+                        "name": "NetID_Provider"
+                    },
+                    {
+                        "type": "string",
+                        "name": "Name_Provider"
+                    },
+                    {
+                        "type": "uint64",
+                        "name": "app_id_SC_Provider"
+                    }
+                ],
+                "returns": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "get_entry_provider",
+                "args": [
+                    {
+                        "type": "account",
+                        "name": "provider"
+                    }
+                ],
+                "returns": {
+                    "type": "(string,string,uint64)"
+                }
+            },
+            {
+                "name": "delete_endpoint",
+                "args": [],
+                "returns": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "provider_exists",
+                "args": [
+                    {
+                        "type": "account",
+                        "name": "provider"
+                    }
+                ],
+                "returns": {
+                    "type": "bool"
+                }
+            }
+        ],
+        "networks": {}
+    },
+    "bare_call_config": {
+        "close_out": "CALL",
+        "delete_application": "CALL",
+        "update_application": "CALL"
+    }
+}

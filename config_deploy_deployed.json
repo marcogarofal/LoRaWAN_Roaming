@@ -1,0 +1,24 @@
+{
+  "catalog": {
+    "app_id": 1001,
+    "address": "CYZIEFLMJ2XHSEUDVJ3O5LPZV44CXWRNBOTPE3JFMYHSSME35JD2MECPCY"
+  },
+  "vodafone": {
+    "app_id": 1002,
+    "address": "UXB6PUK7HDXBMO6IRQAI6BGFGS4W2LXWT64R434XDWD27QLY4VD46D3WXU",
+    "netid": "00000001",
+    "name": "Vodafone",
+    "token": "VODAFONE_TOKEN",
+    "gwid": "GW_VODAFONE_001",
+    "mnemonic": "Exported key for account UXB6PUK7HDXBMO6IRQAI6BGFGS4W2LXWT64R434XDWD27QLY4VD46D3WXU: \"crowd thrive today legal fat argue sport hen evoke minute worth lounge olympic rib marine replace omit dad symptom rebuild spread pepper genuine abandon gospel\""
+  },
+  "tim": {
+    "app_id": 1008,
+    "address": "GTEUO62OKUP5Y2VMZ32DRDD3ZCF6OQBSYPGEKITBGFC6DUR54WJIAITOQA",
+    "netid": "00000002",
+    "name": "Tim",
+    "token": "localhost:1884",
+    "gwid": "0000000000000002",
+    "mnemonic": "Exported key for account GTEUO62OKUP5Y2VMZ32DRDD3ZCF6OQBSYPGEKITBGFC6DUR54WJIAITOQA: \"crop portion strong gesture seat fruit setup claw club air spend catalog barrel picture obey sing churn hedgehog smoke knife affair claim foil about core\""
+  }
+}

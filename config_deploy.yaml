@@ -1,0 +1,78 @@
+# ═══════════════════════════════════════════════════════════════
+# LoRaWAN Blockchain System - Deployment Configuration
+# ═══════════════════════════════════════════════════════════════
+
+# Provider configurations
+providers:
+  # ─────────────────────────────────────────────────────────────
+  # Vodafone (Forwarder)
+  # ─────────────────────────────────────────────────────────────
+  vodafone:
+    netid: "00000001"
+    name: "Vodafone"
+    role: "forwarder"
+
+    # Smart Contract parameters
+    price: 1                    # mALGO per SLA
+    threshold: 500000000                # Minimum packets per SLA
+    tolerance: 80                  # Min percentage of packets (%)
+    payment_tolerance: 95          # Payment tolerance (95%)
+
+    # LoRaWAN parameters
+    token: "VODAFONE_TOKEN"
+    gwid: "GW_VODAFONE_001"
+
+    # MQTT configuration
+    local_broker: "tcp://localhost:1883"
+    foreign_broker: "tcp://localhost:1884"
+    local_gateway_id: "0000000000000001"
+
+  # ─────────────────────────────────────────────────────────────
+  # Tim (Home)
+  # ─────────────────────────────────────────────────────────────
+  tim:
+    netid: "00000002"
+    name: "Tim"
+    role: "home"
+
+    # Smart Contract parameters (COMPATIBLE with Vodafone)
+    price: 2                    # HIGHER than Vodafone (2000)
+    threshold: 300000000                # LOWER than Vodafone (5000)
+    tolerance: 75                  # Min percentage of packets (%)
+    payment_tolerance: 95          # Payment tolerance (95%)
+
+    # LoRaWAN parameters
+    token: "localhost:1884"
+    gwid: "0000000000000002"
+
+    # MQTT configuration
+    local_broker: "tcp://localhost:1884"
+    foreign_broker: "tcp://localhost:1883"
+    local_gateway_id: "0000000000000002"
+
+# ─────────────────────────────────────────────────────────────
+# Algorand configuration
+# ─────────────────────────────────────────────────────────────
+algorand:
+  algod_address: "http://localhost:4001"
+  algod_token: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  indexer_address: "http://localhost:8980"
+
+# ─────────────────────────────────────────────────────────────
+# Optional: Use existing catalog (skip deployment)
+# ─────────────────────────────────────────────────────────────
+# catalog_app_id: 1001
+
+# ═══════════════════════════════════════════════════════════════
+# SLA Compatibility Rules
+# ═══════════════════════════════════════════════════════════════
+#
+# For SLA to be ACCEPTED between Forwarder and Home:
+#
+# 1. Price: Home.price >= Forwarder.price
+#    - Tim (3000) >= Vodafone (2000) ✅
+#
+# 2. Threshold: Forwarder.threshold >= Home.threshold
+#    - Vodafone (5000) >= Tim (3000) ✅
+#
+# ═══════════════════════════════════════════════════════════════

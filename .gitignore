@@ -1,0 +1,9 @@
+*.log
+script_measurements/
+measurements/
+venv_del/
+chirpstack-gateway-bridge/api/api.go_bak2
+chirpstack-gateway-bridge/api/api.go_bak
+chirpstack-gateway-bridge/api/api.go_funzionante_senza_block
+chirpstack-gateway-bridge/api/api.go_problemamqtt
+api.go_versione_originale_funzionante

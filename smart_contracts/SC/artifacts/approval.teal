@@ -1,0 +1,2791 @@
+#pragma version 8
+intcblock 0 1 65536 4
+bytecblock 0x 0x151f7c75 0x5f686f6d655f626f78 0x01 0x41637469766520534c41 0x4170705f49445f636174616c6f676f 0x50726963655f534c41 0x5f666f72776172645f626f78 0x5468726573686f6c64 0x38d9ab24 0x1c459ba6 0x546f6c6572616e6365 0x5061796d656e745f546f6c6572616e6365 0x546f6b656e5f62726f6b6572 0x47576964 0x202d2050726963653a20 0x52656a656374 0x42616e6e6564 0x202d20416d6f756e743a20 0xe0c8e7d1 0x4e6f6e65
+txn NumAppArgs
+intc_0 // 0
+==
+bnz main_l28
+txna ApplicationArgs 0
+pushbytes 0x4c5c61ba // "create()void"
+==
+bnz main_l27
+txna ApplicationArgs 0
+pushbytes 0x30c6d58a // "opt_in()void"
+==
+bnz main_l26
+txna ApplicationArgs 0
+pushbytes 0xa3447537 // "init(uint64,uint64,uint64,uint64,uint64,string,string)string"
+==
+bnz main_l25
+txna ApplicationArgs 0
+pushbytes 0x96ae2bbf // "get_appID_cat()uint64"
+==
+bnz main_l24
+txna ApplicationArgs 0
+pushbytes 0xc5fe19a9 // "getSLA(string,string)(string,string,string,uint64,uint64,uint64,string,string)"
+==
+bnz main_l23
+txna ApplicationArgs 0
+pushbytes 0xcf42b69b // "deleteSLA(string,string)string"
+==
+bnz main_l22
+txna ApplicationArgs 0
+pushbytes 0x7ee3c889 // "sla_check(string,account,application,string,application)(string,string,string)"
+==
+bnz main_l21
+txna ApplicationArgs 0
+bytec 9 // "handshake(application,account,uint64,uint64)(string,string,string)"
+==
+bnz main_l20
+txna ApplicationArgs 0
+pushbytes 0xf3b015bf // "receive_packet_from_forwarder(string)string"
+==
+bnz main_l19
+txna ApplicationArgs 0
+bytec 10 // "pay(application,account)void"
+==
+bnz main_l18
+txna ApplicationArgs 0
+pushbytes 0x712bf611 // "balance(account)uint64"
+==
+bnz main_l17
+txna ApplicationArgs 0
+pushbytes 0x508ac52a // "ban_home_function(string)string"
+==
+bnz main_l16
+txna ApplicationArgs 0
+pushbytes 0x94fa6842 // "get_sla_stats(string,string)string"
+==
+bnz main_l15
+err
+main_l15:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub getslastatscaster_28
+intc_1 // 1
+return
+main_l16:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub banhomefunctioncaster_27
+intc_1 // 1
+return
+main_l17:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub balancecaster_26
+intc_1 // 1
+return
+main_l18:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub paycaster_25
+intc_1 // 1
+return
+main_l19:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub receivepacketfromforwardercaster_24
+intc_1 // 1
+return
+main_l20:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub handshakecaster_23
+intc_1 // 1
+return
+main_l21:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub slacheckcaster_22
+intc_1 // 1
+return
+main_l22:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub deleteSLAcaster_21
+intc_1 // 1
+return
+main_l23:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub getSLAcaster_20
+intc_1 // 1
+return
+main_l24:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub getappIDcatcaster_19
+intc_1 // 1
+return
+main_l25:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub initcaster_18
+intc_1 // 1
+return
+main_l26:
+txn OnCompletion
+intc_1 // OptIn
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub optincaster_17
+intc_1 // 1
+return
+main_l27:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+==
+&&
+assert
+callsub createcaster_16
+intc_1 // 1
+return
+main_l28:
+txn OnCompletion
+pushint 2 // CloseOut
+==
+bnz main_l34
+txn OnCompletion
+intc_3 // UpdateApplication
+==
+bnz main_l33
+txn OnCompletion
+pushint 5 // DeleteApplication
+==
+bnz main_l32
+err
+main_l32:
+txn ApplicationID
+intc_0 // 0
+!=
+assert
+callsub delete_1
+intc_1 // 1
+return
+main_l33:
+txn ApplicationID
+intc_0 // 0
+!=
+assert
+callsub update_2
+intc_1 // 1
+return
+main_l34:
+txn ApplicationID
+intc_0 // 0
+!=
+assert
+callsub closeout_4
+intc_1 // 1
+return
+
+// create
+create_0:
+proto 0 0
+intc_1 // 1
+return
+
+// delete
+delete_1:
+proto 0 0
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+intc_1 // 1
+return
+
+// update
+update_2:
+proto 0 0
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+intc_0 // 0
+return
+
+// opt_in
+optin_3:
+proto 0 0
+intc_0 // 0
+return
+
+// close_out
+closeout_4:
+proto 0 0
+txn Sender
+global CurrentApplicationID
+app_opted_in
+// unauthorized
+assert
+intc_1 // 1
+return
+
+// init
+init_5:
+proto 7 1
+bytec_0 // ""
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+frame_dig -7
+intc_0 // 0
+>
+// Invalid catalog app ID
+assert
+frame_dig -6
+intc_0 // 0
+>
+// Price must be greater than 0
+assert
+frame_dig -5
+intc_0 // 0
+>
+// Threshold must be greater than 0
+assert
+frame_dig -4
+pushint 100 // 100
+<=
+// Tolerance must be <= 100%
+assert
+frame_dig -3
+pushint 100 // 100
+<=
+// Payment tolerance must be <= 100%
+assert
+bytec 5 // "App_ID_catalogo"
+frame_dig -7
+app_global_put
+bytec 6 // "Price_SLA"
+frame_dig -6
+app_global_put
+bytec 8 // "Threshold"
+frame_dig -5
+app_global_put
+bytec 11 // "Tolerance"
+frame_dig -4
+app_global_put
+bytec 12 // "Payment_Tolerance"
+frame_dig -3
+app_global_put
+bytec 13 // "Token_broker"
+frame_dig -2
+extract 2 0
+app_global_put
+bytec 14 // "GWid"
+frame_dig -1
+extract 2 0
+app_global_put
+pushbytes 0x534320696e697469616c697a6564202d2047573a20 // "SC initialized - GW: "
+frame_dig -1
+extract 2 0
+concat
+bytec 15 // " - Price: "
+concat
+frame_dig -6
+itob
+concat
+log
+pushbytes 0x536d61727420436f6e747261637420696e697469616c697a656420636f72726563746c7921 // "Smart Contract initialized correctly!"
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// get_appID_cat
+getappIDcat_6:
+proto 0 1
+intc_0 // 0
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+intc_0 // 0
+bytec 5 // "App_ID_catalogo"
+app_global_get_ex
+store 1
+store 0
+load 1
+intc_1 // 1
+==
+bnz getappIDcat_6_l2
+intc_0 // 0
+frame_bury 0
+b getappIDcat_6_l3
+getappIDcat_6_l2:
+bytec 5 // "App_ID_catalogo"
+app_global_get
+frame_bury 0
+getappIDcat_6_l3:
+retsub
+
+// getSLA
+getSLA_7:
+proto 2 1
+bytec_0 // ""
+dup
+frame_dig -2
+extract 2 0
+bytec 7 // "_forward_box"
+b==
+frame_dig -2
+extract 2 0
+bytec_2 // "_home_box"
+b==
+||
+// Invalid operation type
+assert
+frame_dig -1
+extract 2 0
+frame_dig -2
+extract 2 0
+concat
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig 1
+extract 2 0
+box_len
+store 3
+store 2
+load 3
+intc_1 // 1
+==
+// SLA not found
+assert
+frame_dig 1
+extract 2 0
+box_get
+store 5
+store 4
+load 5
+assert
+load 4
+frame_bury 0
+retsub
+
+// deleteSLA
+deleteSLA_8:
+proto 2 1
+bytec_0 // ""
+dup
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+frame_dig -2
+extract 2 0
+bytec 7 // "_forward_box"
+b==
+frame_dig -2
+extract 2 0
+bytec_2 // "_home_box"
+b==
+||
+// Invalid operation type
+assert
+frame_dig -1
+extract 2 0
+frame_dig -2
+extract 2 0
+concat
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig 1
+extract 2 0
+box_len
+store 7
+store 6
+load 7
+intc_1 // 1
+==
+// SLA not found
+assert
+pushbytes 0x534c412064656c657465643a20 // "SLA deleted: "
+frame_dig -1
+extract 2 0
+concat
+frame_dig -2
+extract 2 0
+concat
+log
+frame_dig 1
+extract 2 0
+box_del
+pop
+pushbytes 0x534c412064656c65746564207375636365737366756c6c79 // "SLA deleted successfully"
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// sla_check
+slacheck_9:
+proto 5 1
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+bytec_0 // ""
+dupn 2
+intc_0 // 0
+dupn 7
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+frame_dig -5
+extract 2 0
+bytec 7 // "_forward_box"
+concat
+frame_bury 5
+frame_dig 5
+len
+itob
+extract 6 0
+frame_dig 5
+concat
+frame_bury 5
+frame_dig 5
+extract 2 0
+box_len
+store 9
+store 8
+load 9
+intc_1 // 1
+==
+bnz slacheck_9_l2
+bytec 6 // "Price_SLA"
+app_global_get
+frame_bury 30
+bytec 8 // "Threshold"
+app_global_get
+frame_bury 31
+itxn_begin
+pushint 6 // appl
+itxn_field TypeEnum
+frame_dig -1
+txnas Applications
+itxn_field ApplicationID
+frame_dig -4
+txnas Accounts
+itxn_field Accounts
+frame_dig -3
+txnas Applications
+itxn_field Applications
+bytec 9 // "handshake(application,account,uint64,uint64)(string,string,string)"
+itxn_field ApplicationArgs
+bytec_3 // 0x01
+itxn_field ApplicationArgs
+bytec_3 // 0x01
+itxn_field ApplicationArgs
+frame_dig 30
+itob
+itxn_field ApplicationArgs
+frame_dig 31
+itob
+itxn_field ApplicationArgs
+itxn_submit
+itxn LastLog
+extract 4 0
+frame_bury 32
+frame_dig 32
+frame_dig 32
+intc_0 // 0
+extract_uint16
+frame_dig 32
+pushint 2 // 2
+extract_uint16
+substring3
+frame_bury 1
+frame_dig 32
+frame_dig 32
+pushint 2 // 2
+extract_uint16
+frame_dig 32
+intc_3 // 4
+extract_uint16
+substring3
+frame_bury 2
+frame_dig 32
+frame_dig 32
+intc_3 // 4
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 3
+intc_0 // 0
+frame_bury 33
+frame_dig -5
+frame_bury 38
+frame_dig 38
+frame_bury 37
+pushint 34 // 34
+frame_bury 35
+frame_dig 35
+frame_dig 38
+len
++
+frame_bury 36
+frame_dig 36
+intc_2 // 65536
+<
+assert
+frame_dig 35
+itob
+extract 6 0
+frame_dig -2
+frame_bury 38
+frame_dig 37
+frame_dig 38
+concat
+frame_bury 37
+frame_dig 36
+frame_bury 35
+frame_dig 35
+frame_dig 38
+len
++
+frame_bury 36
+frame_dig 36
+intc_2 // 65536
+<
+assert
+frame_dig 35
+itob
+extract 6 0
+concat
+frame_dig 1
+frame_bury 38
+frame_dig 37
+frame_dig 38
+concat
+frame_bury 37
+frame_dig 36
+frame_bury 35
+frame_dig 35
+frame_dig 38
+len
++
+frame_bury 36
+frame_dig 36
+intc_2 // 65536
+<
+assert
+frame_dig 35
+itob
+extract 6 0
+concat
+frame_dig 30
+itob
+concat
+frame_dig 31
+itob
+concat
+frame_dig 33
+itob
+concat
+frame_dig 2
+frame_bury 38
+frame_dig 37
+frame_dig 38
+concat
+frame_bury 37
+frame_dig 36
+frame_bury 35
+frame_dig 35
+frame_dig 38
+len
++
+frame_bury 36
+frame_dig 36
+intc_2 // 65536
+<
+assert
+frame_dig 35
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 38
+frame_dig 37
+frame_dig 38
+concat
+frame_bury 37
+frame_dig 36
+frame_bury 35
+frame_dig 35
+itob
+extract 6 0
+concat
+frame_dig 37
+concat
+frame_bury 34
+frame_dig 5
+extract 2 0
+box_del
+pop
+frame_dig 5
+extract 2 0
+frame_dig 34
+box_put
+pushbytes 0x4e657720534c4120637265617465643a20 // "New SLA created: "
+frame_dig -5
+extract 2 0
+concat
+pushbytes 0x202d2053746174653a20 // " - State: "
+concat
+frame_dig 1
+extract 2 0
+concat
+log
+itxn LastLog
+extract 4 0
+frame_bury 0
+b slacheck_9_l12
+slacheck_9_l2:
+frame_dig 5
+extract 2 0
+box_get
+store 11
+store 10
+load 11
+assert
+load 10
+frame_bury 6
+frame_dig 6
+frame_dig 6
+intc_3 // 4
+extract_uint16
+frame_dig 6
+pushint 30 // 30
+extract_uint16
+substring3
+frame_bury 1
+frame_dig 6
+frame_dig 6
+pushint 30 // 30
+extract_uint16
+frame_dig 6
+pushint 32 // 32
+extract_uint16
+substring3
+frame_bury 2
+frame_dig 6
+frame_dig 6
+pushint 32 // 32
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 3
+frame_dig 6
+frame_dig 6
+pushint 2 // 2
+extract_uint16
+frame_dig 6
+intc_3 // 4
+extract_uint16
+substring3
+frame_bury 7
+frame_dig 6
+pushint 6 // 6
+extract_uint64
+frame_bury 8
+frame_dig 6
+pushint 14 // 14
+extract_uint64
+frame_bury 9
+frame_dig 1
+extract 2 0
+bytec 4 // "Active SLA"
+==
+bnz slacheck_9_l4
+bytec 16 // "Reject"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig 1
+frame_bury 29
+frame_dig 29
+frame_bury 28
+pushint 6 // 6
+frame_bury 26
+frame_dig 26
+frame_dig 29
+len
++
+frame_bury 27
+frame_dig 27
+intc_2 // 65536
+<
+assert
+frame_dig 26
+itob
+extract 6 0
+frame_dig 2
+frame_bury 29
+frame_dig 28
+frame_dig 29
+concat
+frame_bury 28
+frame_dig 27
+frame_bury 26
+frame_dig 26
+frame_dig 29
+len
++
+frame_bury 27
+frame_dig 27
+intc_2 // 65536
+<
+assert
+frame_dig 26
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 29
+frame_dig 28
+frame_dig 29
+concat
+frame_bury 28
+frame_dig 27
+frame_bury 26
+frame_dig 26
+itob
+extract 6 0
+concat
+frame_dig 28
+concat
+frame_bury 0
+b slacheck_9_l12
+slacheck_9_l4:
+frame_dig 6
+pushint 22 // 22
+extract_uint64
+frame_bury 4
+frame_dig 4
+frame_dig 9
+==
+bnz slacheck_9_l9
+frame_dig 4
+intc_1 // 1
++
+frame_bury 4
+slacheck_9_l6:
+frame_dig -5
+frame_bury 17
+frame_dig 17
+frame_bury 16
+pushint 34 // 34
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+frame_dig 7
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 1
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 8
+itob
+concat
+frame_dig 9
+itob
+concat
+frame_dig 4
+itob
+concat
+frame_dig 2
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 16
+concat
+frame_bury 6
+frame_dig 5
+extract 2 0
+box_del
+pop
+frame_dig 5
+extract 2 0
+frame_dig 6
+box_put
+frame_dig 1
+extract 2 0
+bytec 4 // "Active SLA"
+==
+bnz slacheck_9_l8
+bytec 16 // "Reject"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig 1
+frame_bury 25
+frame_dig 25
+frame_bury 24
+pushint 6 // 6
+frame_bury 22
+frame_dig 22
+frame_dig 25
+len
++
+frame_bury 23
+frame_dig 23
+intc_2 // 65536
+<
+assert
+frame_dig 22
+itob
+extract 6 0
+frame_dig 2
+frame_bury 25
+frame_dig 24
+frame_dig 25
+concat
+frame_bury 24
+frame_dig 23
+frame_bury 22
+frame_dig 22
+frame_dig 25
+len
++
+frame_bury 23
+frame_dig 23
+intc_2 // 65536
+<
+assert
+frame_dig 22
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 25
+frame_dig 24
+frame_dig 25
+concat
+frame_bury 24
+frame_dig 23
+frame_bury 22
+frame_dig 22
+itob
+extract 6 0
+concat
+frame_dig 24
+concat
+frame_bury 0
+b slacheck_9_l12
+slacheck_9_l8:
+pushbytes 0x416363657074 // "Accept"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig 1
+frame_bury 21
+frame_dig 21
+frame_bury 20
+pushint 6 // 6
+frame_bury 18
+frame_dig 18
+frame_dig 21
+len
++
+frame_bury 19
+frame_dig 19
+intc_2 // 65536
+<
+assert
+frame_dig 18
+itob
+extract 6 0
+frame_dig 2
+frame_bury 21
+frame_dig 20
+frame_dig 21
+concat
+frame_bury 20
+frame_dig 19
+frame_bury 18
+frame_dig 18
+frame_dig 21
+len
++
+frame_bury 19
+frame_dig 19
+intc_2 // 65536
+<
+assert
+frame_dig 18
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 21
+frame_dig 20
+frame_dig 21
+concat
+frame_bury 20
+frame_dig 19
+frame_bury 18
+frame_dig 18
+itob
+extract 6 0
+concat
+frame_dig 20
+concat
+frame_bury 0
+b slacheck_9_l12
+slacheck_9_l9:
+txn Sender
+balance
+frame_bury 10
+intc_0 // 0
+!
+!
+frame_bury 11
+itxn_begin
+pushint 6 // appl
+itxn_field TypeEnum
+frame_dig -1
+txnas Applications
+itxn_field ApplicationID
+frame_dig -4
+txnas Accounts
+itxn_field Accounts
+frame_dig -3
+txnas Applications
+itxn_field Applications
+bytec 10 // "pay(application,account)void"
+itxn_field ApplicationArgs
+bytec_3 // 0x01
+itxn_field ApplicationArgs
+bytec_3 // 0x01
+itxn_field ApplicationArgs
+itxn_submit
+intc_1 // 1
+!
+!
+frame_bury 11
+txn Sender
+balance
+frame_bury 12
+frame_dig 10
+frame_dig 8
+bytec 12 // "Payment_Tolerance"
+app_global_get
+*
+pushint 100 // 100
+/
++
+frame_bury 13
+frame_dig 11
+intc_1 // 1
+==
+frame_dig 12
+frame_dig 13
+>=
+&&
+bnz slacheck_9_l11
+bytec 17 // "Banned"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+pushbytes 0x5061796d656e74206661696c65642066726f6d3a20 // "Payment failed from: "
+frame_dig -5
+extract 2 0
+concat
+pushbytes 0x202d2045787065637465643a20 // " - Expected: "
+concat
+frame_dig 13
+itob
+concat
+pushbytes 0x202d2052656365697665643a20 // " - Received: "
+concat
+frame_dig 12
+frame_dig 10
+-
+itob
+concat
+log
+b slacheck_9_l6
+slacheck_9_l11:
+intc_0 // 0
+frame_bury 4
+pushbytes 0x5061796d656e742072656365697665642066726f6d3a20 // "Payment received from: "
+frame_dig -5
+extract 2 0
+concat
+bytec 18 // " - Amount: "
+concat
+frame_dig 12
+frame_dig 10
+-
+itob
+concat
+log
+b slacheck_9_l6
+slacheck_9_l12:
+retsub
+
+// handshake
+handshake_10:
+proto 4 1
+bytec_0 // ""
+dupn 6
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+frame_dig -4
+txnas Applications
+bytec 5 // "App_ID_catalogo"
+app_global_get
+==
+// Invalid catalog app ID
+assert
+itxn_begin
+pushint 6 // appl
+itxn_field TypeEnum
+frame_dig -4
+txnas Applications
+itxn_field ApplicationID
+frame_dig -3
+txnas Accounts
+itxn_field Accounts
+bytec 19 // "get_entry_provider(account)(string,string,uint64)"
+itxn_field ApplicationArgs
+bytec_3 // 0x01
+itxn_field ApplicationArgs
+itxn_submit
+itxn LastLog
+extract 4 0
+frame_bury 4
+frame_dig 4
+frame_dig 4
+intc_0 // 0
+extract_uint16
+frame_dig 4
+pushint 2 // 2
+extract_uint16
+substring3
+frame_bury 5
+frame_dig 4
+frame_dig 4
+pushint 2 // 2
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 6
+frame_dig 4
+intc_3 // 4
+extract_uint64
+frame_bury 7
+global CallerApplicationID
+frame_dig 7
+==
+// Caller app ID mismatch
+assert
+frame_dig 5
+extract 2 0
+bytec_2 // "_home_box"
+concat
+frame_bury 8
+frame_dig 8
+len
+itob
+extract 6 0
+frame_dig 8
+concat
+frame_bury 8
+frame_dig 8
+extract 2 0
+box_len
+store 13
+store 12
+load 13
+intc_0 // 0
+==
+// SLA already exists
+assert
+bytec 6 // "Price_SLA"
+app_global_get
+frame_dig -2
+>=
+frame_dig -1
+bytec 8 // "Threshold"
+app_global_get
+>=
+&&
+bnz handshake_10_l2
+bytec 20 // "None"
+frame_bury 2
+frame_dig 2
+len
+itob
+extract 6 0
+frame_dig 2
+concat
+frame_bury 2
+bytec 20 // "None"
+frame_bury 3
+frame_dig 3
+len
+itob
+extract 6 0
+frame_dig 3
+concat
+frame_bury 3
+pushbytes 0x534c412072656a6563746564 // "SLA rejected"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+pushbytes 0x534c412072656a65637465643a20 // "SLA rejected: "
+frame_dig 5
+extract 2 0
+concat
+pushbytes 0x202d205072696365206f6666657265643a20 // " - Price offered: "
+concat
+frame_dig -2
+itob
+concat
+pushbytes 0x202d2050726963652072657175697265643a20 // " - Price required: "
+concat
+bytec 6 // "Price_SLA"
+app_global_get
+itob
+concat
+log
+b handshake_10_l3
+handshake_10_l2:
+bytec 13 // "Token_broker"
+app_global_get
+frame_bury 2
+frame_dig 2
+len
+itob
+extract 6 0
+frame_dig 2
+concat
+frame_bury 2
+bytec 14 // "GWid"
+app_global_get
+frame_bury 3
+frame_dig 3
+len
+itob
+extract 6 0
+frame_dig 3
+concat
+frame_bury 3
+bytec 4 // "Active SLA"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+pushbytes 0x534c412061636365707465643a20 // "SLA accepted: "
+frame_dig 5
+extract 2 0
+concat
+bytec 15 // " - Price: "
+concat
+frame_dig -2
+itob
+concat
+pushbytes 0x202d205468726573686f6c643a20 // " - Threshold: "
+concat
+frame_dig -1
+itob
+concat
+log
+handshake_10_l3:
+intc_0 // 0
+frame_bury 9
+frame_dig 5
+frame_bury 14
+frame_dig 14
+frame_bury 13
+pushint 34 // 34
+frame_bury 11
+frame_dig 11
+frame_dig 14
+len
++
+frame_bury 12
+frame_dig 12
+intc_2 // 65536
+<
+assert
+frame_dig 11
+itob
+extract 6 0
+frame_dig 6
+frame_bury 14
+frame_dig 13
+frame_dig 14
+concat
+frame_bury 13
+frame_dig 12
+frame_bury 11
+frame_dig 11
+frame_dig 14
+len
++
+frame_bury 12
+frame_dig 12
+intc_2 // 65536
+<
+assert
+frame_dig 11
+itob
+extract 6 0
+concat
+frame_dig 1
+frame_bury 14
+frame_dig 13
+frame_dig 14
+concat
+frame_bury 13
+frame_dig 12
+frame_bury 11
+frame_dig 11
+frame_dig 14
+len
++
+frame_bury 12
+frame_dig 12
+intc_2 // 65536
+<
+assert
+frame_dig 11
+itob
+extract 6 0
+concat
+frame_dig -2
+itob
+concat
+frame_dig -1
+itob
+concat
+frame_dig 9
+itob
+concat
+frame_dig 2
+frame_bury 14
+frame_dig 13
+frame_dig 14
+concat
+frame_bury 13
+frame_dig 12
+frame_bury 11
+frame_dig 11
+frame_dig 14
+len
++
+frame_bury 12
+frame_dig 12
+intc_2 // 65536
+<
+assert
+frame_dig 11
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 14
+frame_dig 13
+frame_dig 14
+concat
+frame_bury 13
+frame_dig 12
+frame_bury 11
+frame_dig 11
+itob
+extract 6 0
+concat
+frame_dig 13
+concat
+frame_bury 10
+frame_dig 8
+extract 2 0
+box_del
+pop
+frame_dig 8
+extract 2 0
+frame_dig 10
+box_put
+frame_dig 1
+frame_bury 18
+frame_dig 18
+frame_bury 17
+pushint 6 // 6
+frame_bury 15
+frame_dig 15
+frame_dig 18
+len
++
+frame_bury 16
+frame_dig 16
+intc_2 // 65536
+<
+assert
+frame_dig 15
+itob
+extract 6 0
+frame_dig 2
+frame_bury 18
+frame_dig 17
+frame_dig 18
+concat
+frame_bury 17
+frame_dig 16
+frame_bury 15
+frame_dig 15
+frame_dig 18
+len
++
+frame_bury 16
+frame_dig 16
+intc_2 // 65536
+<
+assert
+frame_dig 15
+itob
+extract 6 0
+concat
+frame_dig 3
+frame_bury 18
+frame_dig 17
+frame_dig 18
+concat
+frame_bury 17
+frame_dig 16
+frame_bury 15
+frame_dig 15
+itob
+extract 6 0
+concat
+frame_dig 17
+concat
+frame_bury 0
+retsub
+
+// receive_packet_from_forwarder
+receivepacketfromforwarder_11:
+proto 1 1
+bytec_0 // ""
+dup
+intc_0 // 0
+bytec_0 // ""
+dupn 2
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+frame_dig -1
+extract 2 0
+bytec_2 // "_home_box"
+concat
+frame_bury 3
+frame_dig 3
+len
+itob
+extract 6 0
+frame_dig 3
+concat
+frame_bury 3
+frame_dig 3
+extract 2 0
+box_len
+store 15
+store 14
+load 15
+intc_1 // 1
+==
+// SLA not found
+assert
+frame_dig 3
+extract 2 0
+box_get
+store 17
+store 16
+load 17
+assert
+load 16
+frame_bury 4
+frame_dig 4
+frame_dig 4
+intc_3 // 4
+extract_uint16
+frame_dig 4
+pushint 30 // 30
+extract_uint16
+substring3
+frame_bury 1
+frame_dig 1
+extract 2 0
+bytec 4 // "Active SLA"
+==
+// SLA not active
+assert
+frame_dig 4
+frame_dig 4
+pushint 2 // 2
+extract_uint16
+frame_dig 4
+intc_3 // 4
+extract_uint16
+substring3
+frame_bury 5
+frame_dig 4
+pushint 6 // 6
+extract_uint64
+frame_bury 6
+frame_dig 4
+pushint 14 // 14
+extract_uint64
+frame_bury 7
+frame_dig 4
+frame_dig 4
+pushint 30 // 30
+extract_uint16
+frame_dig 4
+pushint 32 // 32
+extract_uint16
+substring3
+frame_bury 8
+frame_dig 4
+frame_dig 4
+pushint 32 // 32
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 9
+frame_dig 4
+pushint 22 // 22
+extract_uint64
+frame_bury 2
+frame_dig 2
+intc_1 // 1
++
+frame_bury 2
+frame_dig -1
+frame_bury 13
+frame_dig 13
+frame_bury 12
+pushint 34 // 34
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+frame_dig 5
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 1
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 6
+itob
+concat
+frame_dig 7
+itob
+concat
+frame_dig 2
+itob
+concat
+frame_dig 8
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 9
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 12
+concat
+frame_bury 4
+frame_dig 3
+extract 2 0
+box_del
+pop
+frame_dig 3
+extract 2 0
+frame_dig 4
+box_put
+pushbytes 0x5061636b65742072656365697665642066726f6d3a20 // "Packet received from: "
+frame_dig -1
+extract 2 0
+concat
+pushbytes 0x202d20436f756e743a20 // " - Count: "
+concat
+frame_dig 2
+itob
+concat
+pushbytes 0x2f // "/"
+concat
+frame_dig 7
+itob
+concat
+log
+pushbytes 0x5061636b6574207265636569766564 // "Packet received"
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// pay
+pay_12:
+proto 2 0
+bytec_0 // ""
+dup
+intc_0 // 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+dup
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+frame_dig -2
+txnas Applications
+bytec 5 // "App_ID_catalogo"
+app_global_get
+==
+// Invalid catalog app ID
+assert
+itxn_begin
+pushint 6 // appl
+itxn_field TypeEnum
+frame_dig -2
+txnas Applications
+itxn_field ApplicationID
+frame_dig -1
+txnas Accounts
+itxn_field Accounts
+bytec 19 // "get_entry_provider(account)(string,string,uint64)"
+itxn_field ApplicationArgs
+bytec_3 // 0x01
+itxn_field ApplicationArgs
+itxn_submit
+itxn LastLog
+extract 4 0
+frame_bury 0
+frame_dig 0
+frame_dig 0
+intc_0 // 0
+extract_uint16
+frame_dig 0
+pushint 2 // 2
+extract_uint16
+substring3
+frame_bury 1
+frame_dig 0
+intc_3 // 4
+extract_uint64
+frame_bury 2
+global CallerApplicationID
+frame_dig 2
+==
+// Caller app ID mismatch
+assert
+frame_dig 1
+extract 2 0
+bytec_2 // "_home_box"
+concat
+frame_bury 3
+frame_dig 3
+len
+itob
+extract 6 0
+frame_dig 3
+concat
+frame_bury 3
+frame_dig 3
+extract 2 0
+box_len
+store 19
+store 18
+load 19
+intc_1 // 1
+==
+// SLA not found
+assert
+frame_dig 3
+extract 2 0
+box_get
+store 21
+store 20
+load 21
+assert
+load 20
+frame_bury 4
+frame_dig 4
+frame_dig 4
+intc_3 // 4
+extract_uint16
+frame_dig 4
+pushint 30 // 30
+extract_uint16
+substring3
+frame_bury 5
+frame_dig 4
+frame_dig 4
+pushint 2 // 2
+extract_uint16
+frame_dig 4
+intc_3 // 4
+extract_uint16
+substring3
+frame_bury 6
+frame_dig 4
+pushint 6 // 6
+extract_uint64
+frame_bury 7
+frame_dig 4
+pushint 14 // 14
+extract_uint64
+frame_bury 8
+frame_dig 4
+pushint 22 // 22
+extract_uint64
+frame_bury 9
+frame_dig 4
+frame_dig 4
+pushint 30 // 30
+extract_uint16
+frame_dig 4
+pushint 32 // 32
+extract_uint16
+substring3
+frame_bury 10
+frame_dig 4
+frame_dig 4
+pushint 32 // 32
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 11
+frame_dig 8
+bytec 11 // "Tolerance"
+app_global_get
+*
+pushint 100 // 100
+/
+frame_bury 12
+frame_dig 9
+frame_dig 12
+>=
+frame_dig 5
+extract 2 0
+bytec 4 // "Active SLA"
+==
+&&
+bz pay_12_l2
+itxn_begin
+intc_1 // pay
+itxn_field TypeEnum
+frame_dig 7
+itxn_field Amount
+frame_dig -1
+txnas Accounts
+itxn_field Receiver
+itxn_submit
+intc_0 // 0
+frame_bury 9
+frame_dig 1
+frame_bury 17
+frame_dig 17
+frame_bury 16
+pushint 34 // 34
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+frame_dig 6
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 5
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 7
+itob
+concat
+frame_dig 8
+itob
+concat
+frame_dig 9
+itob
+concat
+frame_dig 10
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+frame_dig 17
+len
++
+frame_bury 15
+frame_dig 15
+intc_2 // 65536
+<
+assert
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 11
+frame_bury 17
+frame_dig 16
+frame_dig 17
+concat
+frame_bury 16
+frame_dig 15
+frame_bury 14
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 16
+concat
+frame_bury 13
+frame_dig 3
+extract 2 0
+box_del
+pop
+frame_dig 3
+extract 2 0
+frame_dig 13
+box_put
+pushbytes 0x5061796d656e742073656e7420746f3a20 // "Payment sent to: "
+frame_dig 1
+extract 2 0
+concat
+bytec 18 // " - Amount: "
+concat
+frame_dig 7
+itob
+concat
+pushbytes 0x202d205061636b6574733a20 // " - Packets: "
+concat
+frame_dig 9
+itob
+concat
+log
+pay_12_l2:
+retsub
+
+// balance
+balance_13:
+proto 1 1
+intc_0 // 0
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+frame_dig -1
+txnas Accounts
+balance
+frame_bury 0
+retsub
+
+// ban_home_function
+banhomefunction_14:
+proto 1 1
+bytec_0 // ""
+dup
+intc_0 // 0
+bytec_0 // ""
+dupn 2
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+txn Sender
+global CreatorAddress
+==
+// unauthorized
+assert
+frame_dig -1
+extract 2 0
+bytec_2 // "_home_box"
+concat
+frame_bury 3
+frame_dig 3
+len
+itob
+extract 6 0
+frame_dig 3
+concat
+frame_bury 3
+frame_dig 3
+extract 2 0
+box_len
+store 23
+store 22
+load 23
+intc_1 // 1
+==
+// SLA not found
+assert
+frame_dig 3
+extract 2 0
+box_get
+store 25
+store 24
+load 25
+assert
+load 24
+frame_bury 4
+frame_dig 4
+frame_dig 4
+intc_3 // 4
+extract_uint16
+frame_dig 4
+pushint 30 // 30
+extract_uint16
+substring3
+frame_bury 1
+frame_dig 1
+extract 2 0
+bytec 4 // "Active SLA"
+==
+// SLA not active
+assert
+frame_dig 4
+frame_dig 4
+pushint 2 // 2
+extract_uint16
+frame_dig 4
+intc_3 // 4
+extract_uint16
+substring3
+frame_bury 5
+frame_dig 4
+pushint 6 // 6
+extract_uint64
+frame_bury 6
+frame_dig 4
+pushint 14 // 14
+extract_uint64
+frame_bury 7
+frame_dig 4
+frame_dig 4
+pushint 30 // 30
+extract_uint16
+frame_dig 4
+pushint 32 // 32
+extract_uint16
+substring3
+frame_bury 8
+frame_dig 4
+frame_dig 4
+pushint 32 // 32
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 9
+frame_dig 4
+pushint 22 // 22
+extract_uint64
+frame_bury 2
+bytec 17 // "Banned"
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig -1
+frame_bury 13
+frame_dig 13
+frame_bury 12
+pushint 34 // 34
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+frame_dig 5
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 1
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 6
+itob
+concat
+frame_dig 7
+itob
+concat
+frame_dig 2
+itob
+concat
+frame_dig 8
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+frame_dig 13
+len
++
+frame_bury 11
+frame_dig 11
+intc_2 // 65536
+<
+assert
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 9
+frame_bury 13
+frame_dig 12
+frame_dig 13
+concat
+frame_bury 12
+frame_dig 11
+frame_bury 10
+frame_dig 10
+itob
+extract 6 0
+concat
+frame_dig 12
+concat
+frame_bury 4
+frame_dig 3
+extract 2 0
+box_del
+pop
+frame_dig 3
+extract 2 0
+frame_dig 4
+box_put
+pushbytes 0x50726f76696465722062616e6e65643a20 // "Provider banned: "
+frame_dig -1
+extract 2 0
+concat
+pushbytes 0x202d20526561736f6e3a204d616e75616c2062616e // " - Reason: Manual ban"
+concat
+log
+pushbytes 0x50726f76696465722062616e6e6564207375636365737366756c6c79 // "Provider banned successfully"
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// get_sla_stats
+getslastats_15:
+proto 2 1
+bytec_0 // ""
+dupn 4
+intc_0 // 0
+dupn 2
+frame_dig -1
+extract 2 0
+bytec 7 // "_forward_box"
+b==
+frame_dig -1
+extract 2 0
+bytec_2 // "_home_box"
+b==
+||
+// Invalid operation type
+assert
+frame_dig -2
+extract 2 0
+frame_dig -1
+extract 2 0
+concat
+frame_bury 1
+frame_dig 1
+len
+itob
+extract 6 0
+frame_dig 1
+concat
+frame_bury 1
+frame_dig 1
+extract 2 0
+box_len
+store 27
+store 26
+load 27
+intc_1 // 1
+==
+// SLA not found
+assert
+frame_dig 1
+extract 2 0
+box_get
+store 29
+store 28
+load 29
+assert
+load 28
+frame_bury 2
+frame_dig 2
+frame_dig 2
+intc_0 // 0
+extract_uint16
+frame_dig 2
+pushint 2 // 2
+extract_uint16
+substring3
+frame_bury 3
+frame_dig 2
+frame_dig 2
+intc_3 // 4
+extract_uint16
+frame_dig 2
+pushint 30 // 30
+extract_uint16
+substring3
+frame_bury 4
+frame_dig 2
+pushint 22 // 22
+extract_uint64
+frame_bury 5
+frame_dig 2
+pushint 14 // 14
+extract_uint64
+frame_bury 6
+frame_dig 2
+pushint 6 // 6
+extract_uint64
+frame_bury 7
+pushbytes 0x4e657449443a // "NetID:"
+frame_dig 3
+extract 2 0
+concat
+pushbytes 0x7c53746174653a // "|State:"
+concat
+frame_dig 4
+extract 2 0
+concat
+pushbytes 0x7c436f756e743a // "|Count:"
+concat
+frame_dig 5
+itob
+concat
+pushbytes 0x7c5468726573686f6c643a // "|Threshold:"
+concat
+frame_dig 6
+itob
+concat
+pushbytes 0x7c50726963653a // "|Price:"
+concat
+frame_dig 7
+itob
+concat
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// create_caster
+createcaster_16:
+proto 0 0
+callsub create_0
+retsub
+
+// opt_in_caster
+optincaster_17:
+proto 0 0
+callsub optin_3
+retsub
+
+// init_caster
+initcaster_18:
+proto 0 0
+bytec_0 // ""
+intc_0 // 0
+dupn 4
+bytec_0 // ""
+dup
+txna ApplicationArgs 1
+btoi
+frame_bury 1
+txna ApplicationArgs 2
+btoi
+frame_bury 2
+txna ApplicationArgs 3
+btoi
+frame_bury 3
+txna ApplicationArgs 4
+btoi
+frame_bury 4
+txna ApplicationArgs 5
+btoi
+frame_bury 5
+txna ApplicationArgs 6
+frame_bury 6
+txna ApplicationArgs 7
+frame_bury 7
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+frame_dig 5
+frame_dig 6
+frame_dig 7
+callsub init_5
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// get_appID_cat_caster
+getappIDcatcaster_19:
+proto 0 0
+intc_0 // 0
+callsub getappIDcat_6
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+itob
+concat
+log
+retsub
+
+// getSLA_caster
+getSLAcaster_20:
+proto 0 0
+bytec_0 // ""
+dupn 2
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+frame_bury 2
+frame_dig 1
+frame_dig 2
+callsub getSLA_7
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// deleteSLA_caster
+deleteSLAcaster_21:
+proto 0 0
+bytec_0 // ""
+dupn 2
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+frame_bury 2
+frame_dig 1
+frame_dig 2
+callsub deleteSLA_8
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// sla_check_caster
+slacheckcaster_22:
+proto 0 0
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+intc_0 // 0
+getbyte
+frame_bury 2
+txna ApplicationArgs 3
+intc_0 // 0
+getbyte
+frame_bury 3
+txna ApplicationArgs 4
+frame_bury 4
+txna ApplicationArgs 5
+intc_0 // 0
+getbyte
+frame_bury 5
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+frame_dig 5
+callsub slacheck_9
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// handshake_caster
+handshakecaster_23:
+proto 0 0
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+txna ApplicationArgs 1
+intc_0 // 0
+getbyte
+frame_bury 1
+txna ApplicationArgs 2
+intc_0 // 0
+getbyte
+frame_bury 2
+txna ApplicationArgs 3
+btoi
+frame_bury 3
+txna ApplicationArgs 4
+btoi
+frame_bury 4
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+callsub handshake_10
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// receive_packet_from_forwarder_caster
+receivepacketfromforwardercaster_24:
+proto 0 0
+bytec_0 // ""
+dup
+txna ApplicationArgs 1
+frame_bury 1
+frame_dig 1
+callsub receivepacketfromforwarder_11
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// pay_caster
+paycaster_25:
+proto 0 0
+intc_0 // 0
+dup
+txna ApplicationArgs 1
+intc_0 // 0
+getbyte
+frame_bury 0
+txna ApplicationArgs 2
+intc_0 // 0
+getbyte
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub pay_12
+retsub
+
+// balance_caster
+balancecaster_26:
+proto 0 0
+intc_0 // 0
+dup
+txna ApplicationArgs 1
+intc_0 // 0
+getbyte
+frame_bury 1
+frame_dig 1
+callsub balance_13
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+itob
+concat
+log
+retsub
+
+// ban_home_function_caster
+banhomefunctioncaster_27:
+proto 0 0
+bytec_0 // ""
+dup
+txna ApplicationArgs 1
+frame_bury 1
+frame_dig 1
+callsub banhomefunction_14
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// get_sla_stats_caster
+getslastatscaster_28:
+proto 0 0
+bytec_0 // ""
+dupn 2
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+frame_bury 2
+frame_dig 1
+frame_dig 2
+callsub getslastats_15
+frame_bury 0
+bytec_1 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub

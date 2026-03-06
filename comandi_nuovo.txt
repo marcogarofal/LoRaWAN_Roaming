@@ -1,0 +1,87 @@
+curl -X POST http://localhost:5000/init \
+  -H "Content-Type: application/json" \
+  -d '{
+    "my_netid": "00000001",
+    "my_provider_name": "Vodafone",
+    "is_forwarder": true,
+    "algod_address": "http://localhost:4001",
+    "algod_token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "indexer_address": "http://localhost:8980",
+    "sc_app_id": 1002,
+    "private_key_mnemonic": "apart vague level script shed joy talk west jealous medal lunch either witness silver hurdle gap canyon adapt december gravity false gown slight above refuse"
+  }'
+
+
+
+curl -X POST http://localhost:3000/api/configure \
+  -H "Content-Type: application/json" \
+  -d '{
+    "added_broker": "tcp://localhost:1883",
+    "broker_ip_h_ns": "tcp://localhost:1884",
+    "gwid_token": "0000000000000001",
+    "gwid_token_foreign": "0000000000000001",
+    "blockchain_service_url": "http://localhost:5000",
+    "my_netid": "00000001",
+    "my_provider_name": "Vodafone",
+    "is_forwarder": true,
+    "algod_address": "http://localhost:4001",
+    "algod_token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "indexer_address": "http://localhost:8980",
+    "sc_app_id": 1002,
+    "private_key_mnemonic": "apart vague level script shed joy talk west jealous medal lunch either witness silver hurdle gap canyon adapt december gravity false gown slight above refuse"
+  }'
+
+
+
+
+
+
+
+
+****************************************************************** da qui versione con fallback sbagliata per verificare che prenda i valori dalla blockchain **************************************
+
+
+#versione con fallback sbagliata per verificare che prenda i valori dalla blockchain
+
+
+curl -X POST http://localhost:5000/init   -H "Content-Type: application/json"   -d '{
+    "my_netid": "00000001",
+    "my_provider_name": "Vodafone",
+    "is_forwarder": true,
+    "algod_address": "http://localhost:4001",
+    "algod_token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "indexer_address": "http://localhost:8980",
+    "sc_app_id": 1002,
+    "private_key_mnemonic": "end fall pipe improve candy eager suit local dismiss chief apology salon swarm brave title check below opera gaze sauce okay chief fox abandon muffin"
+  }'
+
+
+
+curl -X POST http://localhost:3000/api/configure   -H "Content-Type: application/json"   -d '{
+    "added_broker": "tcp://localhost:1883",
+    "broker_ip_h_ns": "tcp://localhost:9999",
+    "gwid_token": "0000000000000001",
+    "gwid_token_foreign": "000000000009999",
+    "blockchain_service_url": "http://localhost:5000",
+    "my_netid": "00000001",
+    "my_provider_name": "Vodafone",
+    "is_forwarder": true,                                                                                   "algod_address": "http://localhost:4001",
+    "algod_token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "indexer_address": "http://localhost:8980",
+    "sc_app_id": 1002,
+    "private_key_mnemonic": "end fall pipe improve candy eager suit local dismiss chief apology salon swarm brave title check below opera gaze sauce okay chief fox abandon muffin"
+  }'
+
+
+
+
+
+#senza blockchain
+
+curl -X POST http://localhost:3000/api/configure \
+  -H "Content-Type: application/json" \
+  -d '{
+    "added_broker": "tcp://localhost:1883",
+    "broker_ip_h_ns": "tcp://localhost:1884",
+    "gwid_token": "0000000000000001"
+  }'

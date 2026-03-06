@@ -1,0 +1,76 @@
+{
+    "name": "List of endpoint",
+    "methods": [
+        {
+            "name": "create",
+            "args": [],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "opt_in",
+            "args": [
+                {
+                    "type": "pay",
+                    "name": "payment"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "set_entry_provider",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "NetID_Provider"
+                },
+                {
+                    "type": "string",
+                    "name": "Name_Provider"
+                },
+                {
+                    "type": "uint64",
+                    "name": "app_id_SC_Provider"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "get_entry_provider",
+            "args": [
+                {
+                    "type": "account",
+                    "name": "provider"
+                }
+            ],
+            "returns": {
+                "type": "(string,string,uint64)"
+            }
+        },
+        {
+            "name": "delete_endpoint",
+            "args": [],
+            "returns": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "provider_exists",
+            "args": [
+                {
+                    "type": "account",
+                    "name": "provider"
+                }
+            ],
+            "returns": {
+                "type": "bool"
+            }
+        }
+    ],
+    "networks": {}
+}
